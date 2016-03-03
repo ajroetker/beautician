@@ -1,0 +1,13 @@
+[package]
+name = "beautician"
+version = "0.1.0"
+description = "Streaming JSON parsing and pretty printing."
+readme = "README.md"
+documentation = "http://github.com/ajroetker/beautician/README.md"
+repository = "https://github.com/ajroetker/beautician"
+license-file = "LICENSE"
+keywords = ["json", "pretty", "streaming"]
+authors = ["A.J. Roetker <ajroetker@gmail.com>"]
+
+[dependencies]
+rustc-serialize = "0.3.*"
