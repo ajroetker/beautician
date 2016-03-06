@@ -5,6 +5,7 @@ use std::mem::swap;
 use rustc_serialize::json as json;
 
 pub struct Prettifier {
+    /// Current token from the JSON parser
     token: Option<json::JsonEvent>,
 }
 
@@ -57,6 +58,7 @@ pub fn escape_bytes(wr: &mut io::Write, bytes: &[u8]) -> io::Result<()> {
     Ok(())
 }
 
+/// Escapes the given string into the writer.
 pub fn escape_str(wr: &mut io::Write, value: &str) -> io::Result<()> {
     escape_bytes(wr, value.as_bytes())
 }
@@ -220,6 +222,7 @@ impl Prettifier {
     }
 }
 
+/// Prettifies the JSON content from the reader into the writer.
 pub fn prettify(src: &mut io::Read, dest: &mut io::Write)
             -> Result<(), json::BuilderError> {
     Prettifier::new().stream(src, dest)
