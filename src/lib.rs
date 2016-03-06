@@ -223,6 +223,22 @@ impl Prettifier {
 }
 
 /// Prettifies the JSON content from the reader into the writer.
+/// # Examples
+///
+/// ```
+/// # extern crate beautician;
+/// # extern crate rustc_serialize;
+///
+/// # fn foo() -> Result<(), rustc_serialize::json::BuilderError> {
+/// let mut reader: &[u8] = b"[\"hello\"]";
+/// let mut writer: Vec<u8> = vec![];
+///
+/// try!(beautician::prettify(&mut reader, &mut writer));
+///
+/// assert_eq!(b"[\n  \"hello\"\n]", &writer[..]);
+/// # Ok(())
+/// # }
+/// ```
 pub fn prettify(src: &mut io::Read, dest: &mut io::Write)
             -> Result<(), json::BuilderError> {
     Prettifier::new().stream(src, dest)
@@ -230,7 +246,14 @@ pub fn prettify(src: &mut io::Read, dest: &mut io::Write)
 
 #[cfg(test)]
 mod tests {
+    use super::*;
     #[test]
     fn it_works() {
+        let mut reader: &[u8] = b"[\"hello\"]";
+        let mut writer: Vec<u8> = vec![];
+
+        prettify(&mut reader, &mut writer).unwrap();
+
+        assert_eq!(b"[\n  \"hello\"\n]", &writer[..]);
     }
 }
