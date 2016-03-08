@@ -228,7 +228,6 @@ impl Prettifier {
 /// ```
 /// # extern crate beautician;
 /// # extern crate rustc_serialize;
-///
 /// # fn foo() -> Result<(), rustc_serialize::json::BuilderError> {
 /// let mut reader: &[u8] = b"[\"hello\"]";
 /// let mut writer: Vec<u8> = vec![];
