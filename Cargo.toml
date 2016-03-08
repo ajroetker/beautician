@@ -1,9 +1,9 @@
 [package]
 name = "beautician"
-version = "0.1.0"
+version = "0.1.1"
 description = "Streaming JSON parsing and pretty printing."
 readme = "README.md"
-documentation = "http://github.com/ajroetker/beautician/README.md"
+documentation = "https://ajroetker.github.io/beautician/beautician/index.html"
 repository = "https://github.com/ajroetker/beautician"
 license-file = "LICENSE"
 keywords = ["json", "pretty", "streaming"]
